@@ -15,25 +15,25 @@ export default function Cart() {
   const dispatch = useDispatch();
   const [isCartLoading, setIsCartLoading] = useState(true);
 
- useEffect(() => {
-   if (typeof window !== "undefined") {
-     const cartFromLocalStorage = localStorage.getItem("cart");
-     const parsedCart = cartFromLocalStorage
-       ? JSON.parse(cartFromLocalStorage)
-       : [];
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const cartFromLocalStorage = localStorage.getItem("cart");
+      const parsedCart = cartFromLocalStorage
+        ? JSON.parse(cartFromLocalStorage)
+        : [];
 
-     const fetchCartItems = async () => {
-       const response = await axios.get("/api/users/show-cart-items");
-       setCartItems(response.data.Items);
-       setIsToken(response.data.token);
-     };
+      const fetchCartItems = async () => {
+        const response = await axios.get("/api/users/show-cart-items");
+        setCartItems(response.data.Items);
+        setIsToken(response.data.token);
+      };
 
-     fetchCartItems();
-     dispatch(addInitialCartItems(parsedCart));
-   }
+      fetchCartItems();
+      dispatch(addInitialCartItems(parsedCart));
+    }
 
-   setIsCartLoading(false);
- }, [dispatch]);
+    setIsCartLoading(false);
+  }, [dispatch]);
 
   let cart;
   if (isToken && cartItems) {

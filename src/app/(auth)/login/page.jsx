@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { LoginForm } from "@/components/login/LoginForm";
 
-const page = () => {
+export default page = () => {
   return (
     <div className="min-h-screen w-100 flex justify-center font-tec ">
       <div
@@ -60,5 +60,3 @@ const page = () => {
     </div>
   );
 };
-
-export default page;
