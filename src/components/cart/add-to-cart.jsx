@@ -2,7 +2,7 @@
 import { add } from "@/app/(user)/store/slice/cartSlice";
 import { PlusIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
-import { useSearchParams } from "next/navigation";
+// import { useSearchParams } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 import axios from "axios";
@@ -99,7 +99,6 @@ function SubmitButton({ selectedVariantId, productId }) {
 }
 
 export function AddToCart({ productId }) {
-  const searchParams = useSearchParams();
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
 

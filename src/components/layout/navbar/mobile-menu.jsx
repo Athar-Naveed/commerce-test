@@ -2,7 +2,7 @@
 
 import { Dialog, Transition } from "@headlessui/react";
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Fragment, useEffect, useState } from "react";
 
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -10,7 +10,6 @@ import Search from "./search";
 
 export default function MobileMenu({ menu }) {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
   const openMobileMenu = () => setIsOpen(true);
   const closeMobileMenu = () => setIsOpen(false);
@@ -27,7 +26,7 @@ export default function MobileMenu({ menu }) {
 
   useEffect(() => {
     setIsOpen(false);
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   return (
     <>
