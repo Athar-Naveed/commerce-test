@@ -20,7 +20,7 @@ const Products = () => {
       try {
         setIsLoading(true);
 
-        const response = await axios.get(`${API_BASE_URL}view-all-products`);
+        const response = await axios.get(`${API_BASE_URL}/view-all-products`);
         
         setProducts(response.data.data);
         setIsLoading(false);
