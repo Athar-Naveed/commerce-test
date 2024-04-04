@@ -36,10 +36,11 @@ export function LoginForm() {
   useEffect(() => {
     const getCartProducts = async () => {
       try {
-        const storedProducts = localStorage.getItem("cart");
-
-        if (storedProducts) {
-          setCartProducts(JSON.parse(storedProducts));
+        if (typeof window !== "undefined") {
+          const storedProducts = localStorage.getItem("cart");
+          if (storedProducts) {
+            setCartProducts(JSON.parse(storedProducts));
+          }
         }
       } catch (error) {
         console.error("Error getting cart products from localStorage:", error);
@@ -77,8 +78,9 @@ export function LoginForm() {
           console.log(error);
         }
         toast.success("Login Successfully");
-
-        localStorage.removeItem("cart");
+        if (typeof window !== "undefined") {
+          localStorage.removeItem("cart");
+        }
         router.push("/checkout");
 
         setShowPassword(false);
